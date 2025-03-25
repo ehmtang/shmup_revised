@@ -37,16 +37,16 @@ level_fs = flowstate:new({
         --     map(mp.mx, mp.my, 0, scroll_y, 16, 8)
         -- end
 
-        -- local loop_height = #map_segments * 64
-        -- local wrapped_scroll = scroll % loop_height
+        local loop_height = #map_segments * 64
+        local wrapped_scroll = scroll % loop_height
     
-        -- for i = 1, #map_segments do
-        --     local mp = map_segments[i]
-        --     local scroll_y = (wrapped_scroll - (i-1)*64) % loop_height
+        for i = 1, #map_segments do
+            local mp = map_segments[i]
+            local scroll_y = (wrapped_scroll - (i-1)*64) % loop_height
     
-        --     map(mp.mx, mp.my, 0, scroll_y, 16, 8)
-        --     map(mp.mx, mp.my, 0, scroll_y - loop_height, 16, 8)
-        -- end
+            map(mp.mx, mp.my, 0, scroll_y, 16, 8)
+            map(mp.mx, mp.my, 0, scroll_y - loop_height, 16, 8)
+        end
     end,
 
     exit = _noop
